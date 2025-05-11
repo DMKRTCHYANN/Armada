@@ -24,7 +24,6 @@
     </template>
   </Flicking>
 </template>
-
 <script setup>
 import Flicking from "@egjs/vue3-flicking";
 import {Arrow, AutoPlay} from "@egjs/flicking-plugins";
@@ -43,6 +42,12 @@ const images = [
     buttonText: "Our Services",
     textType: "short",
   },
+  {
+    src: "/images/flicking-img-3.jpg",
+    text: "DEVELOP WITH US",
+    buttonText: "Our Services",
+    textType: "short",
+  }
 ];
 
 const plugins = [
