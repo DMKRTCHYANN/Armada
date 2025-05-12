@@ -1,14 +1,14 @@
 <template>
-  <Flicking
-      :plugins="plugins"
-      :options="{ circular: true  }"
-      class="flicking-viewport"
-      style="width: 100%; overflow: hidden; position: relative;"
-  >
-    <div class="plugins-panel" v-for="(image, index) in images" :key="index">
-      <img class="panel-image" :src="image" alt="Flicking Image" />
-    </div>
-  </Flicking>
+    <Flicking
+        :plugins="plugins"
+        :options="{ circular: true  }"
+        class="flicking-viewport"
+        style="width: 100%; overflow: hidden; position: relative;"
+    >
+      <div class="plugins-panel" v-for="(image, index) in images" :key="index">
+        <img class="panel-image" :src="image" alt="Flicking Image" />
+      </div>
+    </Flicking>
 </template>
 
 <script setup>
@@ -41,7 +41,7 @@ const images = [
   "/images/partner-img-22.png",
   "/images/partner-img-23.png",
 ];
-const plugins = [new AutoPlay({ duration: 2000, direction: "NEXT", stopOnHover: true })];
+const plugins = [new AutoPlay({ duration: 2000, direction: "NEXT", stopOnHover: false })];
 
 </script>
 
@@ -71,5 +71,9 @@ const plugins = [new AutoPlay({ duration: 2000, direction: "NEXT", stopOnHover: 
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+}
+
+.panel-image:hover{
+  opacity: 0.5;
 }
 </style>

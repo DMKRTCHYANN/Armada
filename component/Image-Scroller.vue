@@ -7,13 +7,15 @@
         :key="index"
     >
       <div
-          class="dq w-full"
+          class="content w-full"
       >
-        <div
-            class="text-white text-2xl"
-            :class="['image-text', image.textType]"
-        >
-          {{ image.text }}
+        <div data-aos="fade-right">
+          <div
+              class="text-white text-2xl"
+              :class="['image-text', image.textType]"
+          >
+            {{ image.text }}
+          </div>
           <button class="service-button">{{ image.buttonText }}</button>
         </div>
       </div>
@@ -69,7 +71,7 @@ const plugins = [
   height: 820px;
 }
 
-.dq {
+.content {
   max-width: 1100px;
   margin: auto;
   display: flex;
@@ -110,8 +112,8 @@ const plugins = [
 .service-button {
   display: block;
   width: 200px;
-  margin-top: 15px;
-  padding: 10px 20px;
+  margin-top: 40px;
+  padding: 10px 30px;
   background-color: transparent;
   border: 3px solid white;
   color: white;
@@ -124,7 +126,6 @@ const plugins = [
   background-color: white;
   color: black;
 }
-
 
 
 </style>
