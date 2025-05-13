@@ -32,28 +32,25 @@
         </div>
       </div>
     </div>
-
     <div
         :class="[
-      'flex border-t border-[rgba(255,255,255,0.2)] text-sm w-full bg-[#18191b] z-50 px-[15px] transition-all duration-300 fixed left-0',
-      scroll ? 'top-0' : 'top-10'
-    ]"
+    'flex border-t border-[rgba(255,255,255,0.2)] text-sm w-full bg-[#18191b] z-50 px-[15px] transition-all duration-300 fixed left-0',
+    scroll ? 'top-0' : 'top-10'
+  ]"
     >
       <nav class="container mx-auto py-[3px]">
         <div class="flex items-center justify-between">
-          <img
-              src="/images/armada.png"
-              alt="Armada Logo"
-              class="w-[152px] h-[72px]"
-          />
-          <div class="hidden md:flex space-x-8 text-sm">
+          <NuxtLink to="#home">
+            <img src="/images/armada.png" alt="Armada Logo" class="w-[152px] h-[72px]"/>
+          </NuxtLink>
+          <div class="flex space-x-8 text-sm">
             <div class="flex items-center gap-[10px]">
               <NuxtLink
                   to="#home"
                   :class="{
-                'text-[#169bb2]': route.hash === '#home',
-                'text-gray-300 hover:text-[#169bb2]': route.hash !== '#home',
-              }"
+              'text-[#169bb2]': activeSection === 'home',
+              'text-gray-300 hover:text-[#169bb2]': activeSection !== 'home',
+            }"
                   class="transition-colors"
               >
                 HOME
@@ -64,9 +61,9 @@
               <NuxtLink
                   to="#about-us"
                   :class="{
-                'text-[#169bb2]': route.hash === '#about-us',
-                'text-gray-300 hover:text-[#169bb2]': route.hash !== '#about-us',
-              }"
+              'text-[#169bb2]': activeSection === 'about-us',
+              'text-gray-300 hover:text-[#169bb2]': activeSection !== 'about-us',
+            }"
                   class="transition-colors"
               >
                 ABOUT US
@@ -77,9 +74,9 @@
               <NuxtLink
                   to="#our-services"
                   :class="{
-                'text-[#169bb2]': route.hash === '#our-services',
-                'text-gray-300 hover:text-[#169bb2]': route.hash !== '#our-services',
-              }"
+              'text-[#169bb2]': activeSection === 'our-services',
+              'text-gray-300 hover:text-[#169bb2]': activeSection !== 'our-services',
+            }"
                   class="transition-colors"
               >
                 OUR SERVICES
@@ -90,9 +87,9 @@
               <NuxtLink
                   to="#clients-partners"
                   :class="{
-                'text-[#169bb2]': route.hash === '#clients-partners',
-                'text-gray-300 hover:text-[#169bb2]': route.hash !== '#clients-partners',
-              }"
+              'text-[#169bb2]': activeSection === 'clients-partners',
+              'text-gray-300 hover:text-[#169bb2]': activeSection !== 'clients-partners',
+            }"
                   class="transition-colors"
               >
                 Clients & Partners
@@ -103,9 +100,9 @@
               <NuxtLink
                   to="#contact-us"
                   :class="{
-                'text-[#169bb2]': route.hash === '#contact-us',
-                'text-gray-300 hover:text-[#169bb2]': route.hash !== '#contact-us',
-              }"
+              'text-[#169bb2]': activeSection === 'contact-us',
+              'text-gray-300 hover:text-[#169bb2]': activeSection !== 'contact-us',
+            }"
                   class="transition-colors"
               >
                 CONTACT US
@@ -116,6 +113,93 @@
         </div>
       </nav>
     </div>
+    <!--    <div-->
+    <!--        :class="[-->
+    <!--      'flex border-t border-[rgba(255,255,255,0.2)] text-sm w-full bg-[#18191b] z-50 px-[15px] transition-all duration-300 fixed left-0',-->
+    <!--      scroll ? 'top-0' : 'top-10'-->
+    <!--    ]"-->
+    <!--    >-->
+    <!--      <nav class="container mx-auto py-[3px]">-->
+    <!--        <div class="flex items-center justify-between">-->
+    <!--          <NuxtLink-->
+    <!--            to="#home"-->
+    <!--          >-->
+    <!--            <img-->
+    <!--                src="/images/armada.png"-->
+    <!--                alt="Armada Logo"-->
+    <!--                class="w-[152px] h-[72px]"-->
+    <!--            />-->
+    <!--          </NuxtLink>-->
+    <!--          <div class="flex space-x-8 text-sm">-->
+    <!--            <div class="flex items-center gap-[10px]">-->
+    <!--              <NuxtLink-->
+    <!--                  to="#home"-->
+    <!--                  :class="{-->
+    <!--                'text-[#169bb2]': route.hash === '#home',-->
+    <!--                'text-gray-300 hover:text-[#169bb2]': route.hash !== '#home',-->
+    <!--              }"-->
+    <!--                  class="transition-colors"-->
+    <!--              >-->
+    <!--                HOME-->
+    <!--              </NuxtLink>-->
+    <!--              <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full"></div>-->
+    <!--            </div>-->
+    <!--            <div class="flex items-center gap-[10px]">-->
+    <!--              <NuxtLink-->
+    <!--                  to="#about-us"-->
+    <!--                  :class="{-->
+    <!--                'text-[#169bb2]': route.hash === '#about-us',-->
+    <!--                'text-gray-300 hover:text-[#169bb2]': route.hash !== '#about-us',-->
+    <!--              }"-->
+    <!--                  class="transition-colors"-->
+    <!--              >-->
+    <!--                ABOUT US-->
+    <!--              </NuxtLink>-->
+    <!--              <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full"></div>-->
+    <!--            </div>-->
+    <!--            <div class="flex items-center gap-[10px]">-->
+    <!--              <NuxtLink-->
+    <!--                  to="#our-services"-->
+    <!--                  :class="{-->
+    <!--                'text-[#169bb2]': route.hash === '#our-services',-->
+    <!--                'text-gray-300 hover:text-[#169bb2]': route.hash !== '#our-services',-->
+    <!--              }"-->
+    <!--                  class="transition-colors"-->
+    <!--              >-->
+    <!--                OUR SERVICES-->
+    <!--              </NuxtLink>-->
+    <!--              <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full"></div>-->
+    <!--            </div>-->
+    <!--            <div class="flex items-center gap-[10px]">-->
+    <!--              <NuxtLink-->
+    <!--                  to="#clients-partners"-->
+    <!--                  :class="{-->
+    <!--                'text-[#169bb2]': route.hash === '#clients-partners',-->
+    <!--                'text-gray-300 hover:text-[#169bb2]': route.hash !== '#clients-partners',-->
+    <!--              }"-->
+    <!--                  class="transition-colors"-->
+    <!--              >-->
+    <!--                Clients & Partners-->
+    <!--              </NuxtLink>-->
+    <!--              <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full"></div>-->
+    <!--            </div>-->
+    <!--            <div class="flex items-center gap-[10px]">-->
+    <!--              <NuxtLink-->
+    <!--                  to="#contact-us"-->
+    <!--                  :class="{-->
+    <!--                'text-[#169bb2]': route.hash === '#contact-us',-->
+    <!--                'text-gray-300 hover:text-[#169bb2]': route.hash !== '#contact-us',-->
+    <!--              }"-->
+    <!--                  class="transition-colors"-->
+    <!--              >-->
+    <!--                CONTACT US-->
+    <!--              </NuxtLink>-->
+    <!--              <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full"></div>-->
+    <!--            </div>-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--      </nav>-->
+    <!--    </div>-->
     <client-only>
       <Image-Scroller/>
     </client-only>
@@ -215,12 +299,12 @@
   <div class="parallax bg-fixed bg-center bg-no-repeat bg-cover py-[90px] min-h-[500px]">
     <div class="mx-auto max-w-[1140px] w-full">
       <div data-aos="fade-up">
-      <h2 class="text-center text-3xl text-white">Our Vision</h2>
-      <div class="my-[30px] flex items-center justify-center">
-        <div class="w-[400px] h-[1px] bg-gray-400"></div>
-        <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full mx-[10px]"></div>
-        <div class="w-[400px] h-[1px] bg-gray-400"></div>
-      </div>
+        <h2 class="text-center text-3xl text-white">Our Vision</h2>
+        <div class="my-[30px] flex items-center justify-center">
+          <div class="w-[400px] h-[1px] bg-gray-400"></div>
+          <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full mx-[10px]"></div>
+          <div class="w-[400px] h-[1px] bg-gray-400"></div>
+        </div>
       </div>
       <div class="flex justify-center gap-[40px]">
         <div
@@ -234,8 +318,6 @@
             : 'bg-[#169bb2] bg-opacity-60 text-[#222222]'
         ]"
             @click="updateText(text, id)"
-            :data-aos="'fade-right'"
-            :data-aos-delay="id * 200"
         >
           <span class="font-bold text-lg text-center">{{ id }}</span>
         </div>
@@ -255,7 +337,7 @@
         <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full mx-[10px]"></div>
         <div class="w-[400px] h-[1px] bg-gray-400"></div>
       </div>
-      <div class="text-center flex justify-center gap-[10px] my-[30px]">
+      <div class="text-center flex justify-center gap-[10px] my-[40px]" data-aos="fade-up">
         <button
             @click="filterImages('outdoor')"
             :class="{
@@ -288,7 +370,7 @@
           <img
               :src="image.src"
               :alt="image.alt"
-              class="w-full h-auto transition-transform duration-300 group-hover:scale-110"
+              class=" transition-transform duration-300 group-hover:scale-110"
           />
           <div
               class="absolute inset-0 bg-white bg-opacity-85 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -301,23 +383,26 @@
       </transition-group>
     </div>
     <div class="flex justify-center py-[60px] bg-[#169bb2]">
-      <button
-          class="py-[10px] px-[6px] max-w-[270px] border border-black rounded-2 w-full cursor-pointer hover:text-white hover:bg-black transition-all duration-500"
+      <NuxtLink
+          to="/works"
+          class="py-[10px] px-[6px] max-w-[270px] border border-black rounded-2 w-full cursor-pointer hover:text-white hover:bg-black transition-all duration-500 text-center"
       >
         VIEW ALL SERVICES >
-      </button>
+      </NuxtLink>
     </div>
   </div>
   <div class="py-[90px]">
-    <h2 class="text-center text-3xl text-black font-bold mb-2">Facts</h2>
-    <div class="my-[30px] flex items-center justify-center">
-      <div class="w-[400px] h-[1px] bg-gray-400"></div>
-      <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full mx-[10px]"></div>
-      <div class="w-[400px] h-[1px] bg-gray-400"></div>
+    <div data-aos="fade-up">
+      <h2 class="text-center text-3xl text-black font-bold mb-2">Facts</h2>
+      <div class="my-[30px] flex items-center justify-center">
+        <div class="w-[400px] h-[1px] bg-gray-400"></div>
+        <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full mx-[10px]"></div>
+        <div class="w-[400px] h-[1px] bg-gray-400"></div>
+      </div>
     </div>
-    <div class="grid grid-cols-4 gap-8 container mx-auto py-[30px] facts-section">
+    <div id="facts-section" class="grid grid-cols-4 gap-8 container mx-auto py-[30px]">
       <div v-for="fact in facts" :key="fact.id" class="flex flex-col items-center text-center">
-        <img :src="fact.icon" :alt="fact.title" class="mb-4 w-12 h-12"/>
+        <img :src="fact.icon" :alt="fact.title" class="mb-4 w-[71px] h-[60px]"/>
         <div v-if="animatedValues[fact.id]" class="text-5xl font-bold mb-2">{{ animatedValues[fact.id] }}</div>
         <div class="text-[#169bb2] uppercase text-sm tracking-wider">{{ fact.title }}</div>
       </div>
@@ -338,14 +423,17 @@
   </div>
   <div id="contact-us">
     <div class="max-w-[1170px] w-full py-[90px] mx-auto px-[15px]">
-      <h2 class="text-center text-3xl text-black">Contact Us</h2>
-      <div class="my-[30px] flex items-center justify-center">
-        <div class="w-[400px] h-[1px] bg-black"></div>
-        <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full mx-[10px]"></div>
-        <div class="w-[400px] h-[1px] bg-black"></div>
+      <div data-aos="fade-up">
+        <h2 class="text-center text-3xl text-black">Contact Us</h2>
+        <div class="my-[30px] flex items-center justify-center">
+          <div class="w-[400px] h-[1px] bg-black"></div>
+          <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full mx-[10px]"></div>
+          <div class="w-[400px] h-[1px] bg-black"></div>
+        </div>
       </div>
       <div class="max-w-[1200px] pt-[30px] w-full mx-auto flex  gap-8">
-        <div>
+
+        <div data-aos="fade-right">
           <form class="flex flex-col space-y-5" action="/submit-form" method="POST">
             <input
                 type="text"
@@ -375,16 +463,16 @@
             </button>
           </form>
         </div>
-        <div class="max-w-[471px] w-full">
-        <textarea
-            name="message"
-            placeholder="Your Message"
-            rows="8"
-            class="w-full border border-gray-300 p-3 rounded-md focus:outline-none bg-gray-100  focus:ring-2 focus:ring-[#169bb2]"
-            required
-        ></textarea>
+        <div class="max-w-[471px] w-full" data-aos="fade-right">
+            <textarea
+                name="message"
+                placeholder="Your Message"
+                rows="8"
+                class="w-full border border-gray-300 p-3 rounded-md focus:outline-none bg-gray-100  focus:ring-2 focus:ring-[#169bb2]"
+                required
+            ></textarea>
         </div>
-        <div class="px-[15px] mt-4 space-y-2 rounded-md ">
+        <div class="px-[15px] mt-4 space-y-2 rounded-md" data-aos="fade-left">
           <p class="text-lg  text-black">CONTACT INFO</p>
           <p class="text-xl font-semibold text-[#169bb2]">
             Armenia, 0026, Yerevan. Garegin Nzhdeh Sr. 3a Building<br>
@@ -406,7 +494,7 @@
           <div class="w-full h-[0.1px] bg-gray-200"></div>
           <p class="text-xs">
             <span class="font-semibold text-[#169bb2] pr-[36px]">Web:</span>
-            <a href="http://armada-co.com" class="hover:underline">http://armada-co.com</a>
+            <a href="http://armada-co.com" class="hover:underline text-white">http://armada-co.com</a>
           </p>
           <div class="w-full h-[1px] bg-gray-200"></div>
           <p class="text-xs mt-[5px]">
@@ -490,76 +578,35 @@
 }
 </style>
 <script setup>
-import PartnerScroller from "~/component/Partner-Scroller.vue";
-import ImageScroller from "~/component/Image-Scroller.vue";
+import {ref, computed, onMounted, onUnmounted} from 'vue';
+import PartnerScroller from '~/component/Partner-Scroller.vue';
+import ImageScroller from '~/component/Image-Scroller.vue';
 
 const currentCategory = ref('all');
+const activeSection = ref('home');
+const scroll = ref(false);
+const animatedValues = ref([0, 0, 0, 0]);
+const dynamicText = ref(
+    "Understanding Clients' needs is definitely the most important part of our product creation. On this stage, our team along with the Client defines project goals, requirements, and main deliverables."
+);
+const activeId = ref(null);
+
 const facts = [
-  {id: 0, icon: '/images/portfolio.png', title: 'PROJECTS IMPLEMENTED', value: 450},
+  {id: 0, icon: '/images/portfolio.svg', title: 'PROJECTS IMPLEMENTED', value: 450},
   {id: 1, icon: '/images/favorite.png', title: 'CLIENTS & PARTNERS', value: 85},
-  {id: 2, icon: '/images/location.png', title: 'LOCATIONS IN YEREVAN', value: 59},
-  {id: 3, icon: '/images/cup.png', title: 'YEARS WORKING IN ARMENIA', value: 12},
+  {id: 2, icon: '/images/location.svg', title: 'LOCATIONS IN YEREVAN', value: 59},
+  {id: 3, icon: '/images/cup.svg', title: 'YEARS WORKING IN ARMENIA', value: 12},
 ];
-const scroll = ref(false)
-const route = useRoute();
-const animatedValues = ref(facts.map(() => 0));
+
 const images = [
-  {
-    id: 1,
-    category: 'digital',
-    src: '/images/work-1.jpg',
-    alt: 'Image 1',
-    caption: 'BRANDED PAYMENT STATION',
-  },
-  {
-    id: 2,
-    category: 'outdoor',
-    src: '/images/work-2.jpg',
-    alt: 'Image 2',
-    caption: 'BRANDMAUER',
-  },
-  {
-    id: 3,
-    category: 'outdoor',
-    src: '/images/work-3.jpg',
-    alt: 'Image 3',
-    caption: 'BRIDGE BILLBOARDS',
-  },
-  {
-    id: 4,
-    category: 'digital',
-    src: '/images/work-4.jpg',
-    alt: 'Image 4',
-    caption: 'LED ADVERTISING MONITORS',
-  },
-  {
-    id: 5,
-    category: 'outdoor',
-    src: '/images/work-5.jpg',
-    alt: 'Image 5',
-    caption: '3D LETTERS',
-  },
-  {
-    id: 6,
-    category: 'outdoor',
-    src: '/images/work-6.jpg',
-    alt: 'Image 6',
-    caption: 'TRIANGLES',
-  },
-  {
-    id: 7,
-    category: 'outdoor',
-    src: '/images/work-7.jpg',
-    alt: 'Image 7',
-    caption: 'CITY PHONES',
-  },
-  {
-    id: 8,
-    category: 'outdoor',
-    src: '/images/work-8.jpg',
-    alt: 'Image 8',
-    caption: 'LED DISPLAYS',
-  },
+  {id: 1, category: 'digital', src: '/images/work-1.jpg', alt: 'Image 1', caption: 'BRANDED PAYMENT STATION'},
+  {id: 2, category: 'outdoor', src: '/images/work-2.jpg', alt: 'Image 2', caption: 'BRANDMAUER'},
+  {id: 3, category: 'outdoor', src: '/images/work-3.jpg', alt: 'Image 3', caption: 'BRIDGE BILLBOARDS'},
+  {id: 4, category: 'digital', src: '/images/work-4.jpg', alt: 'Image 4', caption: 'LED ADVERTISING MONITORS'},
+  {id: 5, category: 'outdoor', src: '/images/work-5.jpg', alt: 'Image 5', caption: '3D LETTERS'},
+  {id: 6, category: 'outdoor', src: '/images/work-6.jpg', alt: 'Image 6', caption: 'TRIANGLES'},
+  {id: 7, category: 'outdoor', src: '/images/work-7.jpg', alt: 'Image 7', caption: 'CITY PHONES'},
+  {id: 8, category: 'outdoor', src: '/images/work-8.jpg', alt: 'Image 8', caption: 'LED DISPLAYS'},
 ];
 
 const steps = {
@@ -567,15 +614,6 @@ const steps = {
   "Idea & Concept": "How to generate creative ideas? Concept development is a process of creative and collaborative work where the main actors are ARMADA team and the Client.",
   "Design & Create": "When the main idea and the final concept are ready it’s time to develop product design. Design details are agreed with the Client and the process of creation starts.",
   "Build & Install": "The next step of designing and creating the product is its final installation. This step requires thorough and responsible approach. The success comes when the whole process and final result meets the expectations of the Clients and make them happier."
-};
-const dynamicText = ref(
-    "Understanding Clients' needs is definitely the most important part of our product creation. On this stage, our team along with the Client defines project goals, requirements, and main deliverables."
-);
-const activeId = ref(null);
-
-const updateText = (text, id) => {
-  dynamicText.value = text;
-  activeId.value = id;
 };
 
 const filteredImages = computed(() => {
@@ -592,6 +630,11 @@ const filterImages = (category) => {
   currentCategory.value = category;
 };
 
+const updateText = (text, id) => {
+  dynamicText.value = text;
+  activeId.value = id;
+};
+
 function animateCounter(index, start, end, duration) {
   const startTime = performance.now();
 
@@ -606,28 +649,35 @@ function animateCounter(index, start, end, duration) {
   requestAnimationFrame(updateCounter);
 }
 
-function handleIntersection(entries) {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      facts.forEach((fact, index) => {
-        animateCounter(index, 0, fact.value, 4000);
-      });
-    }
-  });
-}
-
 function handleScroll() {
   scroll.value = window.scrollY > 0;
 }
 
+function handleIntersection(entries) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      if (id === 'facts-section') {
+        facts.forEach((fact, index) => {
+          animateCounter(index, 0, fact.value, 3000);
+        });
+      }
+      if (id && id !== 'facts-section') {
+        activeSection.value = id;
+      } else if (!id) {
+        activeSection.value = 'home';
+      }
+    }
+  });
+}
+
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
 });
-
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
 });
-
 onMounted(() => {
   const observer = new IntersectionObserver(handleIntersection, {
     root: null,
@@ -638,4 +688,33 @@ onMounted(() => {
     observer.observe(factsSection);
   }
 });
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+  const observer = new IntersectionObserver(handleIntersection, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.5,
+  });
+  const factsSection = document.querySelector('#facts-section');
+  if (factsSection) {
+    observer.observe(factsSection);
+  }
+  const sections = ['home', 'about-us', 'our-services', 'clients-partners', 'contact-us'];
+  sections.forEach((sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      observer.observe(section);
+    }
+  });
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 </script>
+
+
+
+
+
