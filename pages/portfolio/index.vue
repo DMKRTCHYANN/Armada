@@ -58,58 +58,51 @@
   <div class="bg-[rgb(34,34,34)]">
     <div class="max-w-[1140px] py-[80px] w-full mx-auto flex justify-between">
       <h1 class="text-white text-4xl">Portfolio</h1>
-      <p class="text-white"> <span class="text-[#169bb2]">Home</span> <span>/</span> Portfolio</p>
+      <p class="text-white"><a  href="/" class="text-[#169bb2] hover:text-white">Home</a> <span>/</span> Portfolio</p>
     </div>
   </div>
-  <div>
-    <div class="text-center flex justify-center gap-[10px] my-[40px]" data-aos="fade-up">
-      <button
-          @click="filterImages('outdoor')"
-          :class="{
-          'bg-[#169bb2] text-white': currentCategory === 'outdoor',
-          'text-gray-600': currentCategory !== 'outdoor'
-        }"
-          class="py-[10px] px-[6px] max-w-[270px] w-full cursor-pointer hover:bg-black hover:text-white transition-all"
-      >
-        OUTDOOR ADVERTISING
-      </button>
-      <button
-          @click="filterImages('digital')"
-          :class="{
-          'bg-[#169bb2] text-white': currentCategory === 'digital',
-          'text-gray-600': currentCategory !== 'digital'
-        }"
-          class="py-[10px] px-[6px] max-w-[270px] w-full cursor-pointer hover:bg-black hover:text-white transition-all"
-      >
-        DIGITAL MARKETING
-      </button>
-    </div>
-    <transition-group
-        name="fade"
-        tag="div"
-        class="grid grid-cols-4 w-full"
-        data-aos="fade-up"
+  <div class="text-center flex justify-center gap-[10px] my-[40px]" data-aos="fade-up">
+    <button
+        @click="filterImages('digital')"
+        :class="{
+        'bg-[#169bb2] text-white': currentCategory === 'digital',
+        'text-gray-600': currentCategory !== 'digital'
+      }"
+        class="py-[10px] px-[6px] max-w-[270px] w-full cursor-pointer hover:bg-black hover:text-white transition-all"
     >
-      <div
-          v-for="(image, index) in filteredImages.slice(0, 8)"
-          :key="image.id"
-          class="relative group overflow-hidden"
-      >
-        <img
-            :src="image.src"
-            :alt="image.alt"
-            class="transition-transform duration-300 transform group-hover:scale-110"
-        />
-        <div
-            class="absolute inset-0 bg-white bg-opacity-85 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        >
-          <p class="text-[#169bb2] text-center text-2xl font-bold">
-            {{ image.caption }}
-          </p>
-        </div>
-      </div>
-    </transition-group>
+      DIGITAL MARKETING
+    </button>
+    <button
+        @click="filterImages('outdoor')"
+        :class="{
+        'bg-[#169bb2] text-white': currentCategory === 'outdoor',
+        'text-gray-600': currentCategory !== 'outdoor'
+      }"
+        class="py-[10px] px-[6px] max-w-[270px] w-full cursor-pointer hover:bg-black hover:text-white transition-all"
+    >
+      OUTDOOR ADVERTISING
+    </button>
   </div>
+  <transition-group name="fade" tag="div" class="grid grid-cols-4 gap-0 w-full">
+    <div
+        v-for="(image, index) in filteredImages.slice(0, 8)"
+        :key="image.id"
+        class="relative group overflow-hidden"
+    >
+      <img
+          :src="image.src"
+          :alt="image.alt"
+          class=" transition-transform duration-300 group-hover:scale-110"
+      />
+      <div
+          class="absolute inset-0 bg-white bg-opacity-85 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      >
+        <p class="text-[#169bb2] text-center text-2xl font-bold">
+          {{ image.caption }}
+        </p>
+      </div>
+    </div>
+  </transition-group>
   <div>
     <div class="bg-[#111] text-white py-12 mt-[200px]">
       <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 px-4">
@@ -161,39 +154,53 @@
     </div>
   </div>
 </template>
-
-<style scoped>
-
-</style>
 <script setup>
-
 const currentCategory = ref('all');
 const images = [
-  {id: 1, category: 'digital', src: '/images/work-1.jpg', alt: 'Image 1', caption: 'BRANDED PAYMENT STATION'},
-  {id: 2, category: 'outdoor', src: '/images/work-2.jpg', alt: 'Image 2', caption: 'BRANDMAUER'},
-  {id: 3, category: 'outdoor', src: '/images/work-3.jpg', alt: 'Image 3', caption: 'BRIDGE BILLBOARDS'},
-  {id: 4, category: 'digital', src: '/images/work-4.jpg', alt: 'Image 4', caption: 'LED ADVERTISING MONITORS'},
-  {id: 5, category: 'outdoor', src: '/images/work-5.jpg', alt: 'Image 5', caption: '3D LETTERS'},
-  {id: 6, category: 'outdoor', src: '/images/work-6.jpg', alt: 'Image 6', caption: 'TRIANGLES'},
-  {id: 7, category: 'outdoor', src: '/images/work-7.jpg', alt: 'Image 7', caption: 'CITY PHONES'},
-  {id: 8, category: 'outdoor', src: '/images/work-8.jpg', alt: 'Image 8', caption: 'LED DISPLAYS'},
+  { id: 1, category: 'digital', src: '/images/work-1.jpg', alt: 'Image 1', caption: 'BRANDED PAYMENT STATION', style: { height: '278px' }},
+  { id: 2, category: 'outdoor', src: '/images/work-2.jpg', alt: 'Image 2', caption: 'BRANDMAUER', style: { height: '202px' }},
+  { id: 3, category: 'outdoor', src: '/images/work-3.jpg', alt: 'Image 3', caption: 'BRIDGE BILLBOARDS', style: { height: '313px' }},
+  { id: 4, category: 'digital', src: '/images/work-4.jpg', alt: 'Image 4', caption: 'LED ADVERTISING MONITORS', style: { height: '378px' }},
+  { id: 5, category: 'outdoor', src: '/images/work-5.jpg', alt: 'Image 5', caption: '3D LETTERS', style: { height: '278px' }},
+  { id: 6, category: 'outdoor', src: '/images/work-6.jpg', alt: 'Image 6', caption: 'TRIANGLES', style: { height: '278px' }},
+  { id: 7, category: 'outdoor', src: '/images/work-7.jpg', alt: 'Image 7', caption: 'CITY PHONES', style: { height: '278px' }},
+  { id: 8, category: 'outdoor', src: '/images/work-8.jpg', alt: 'Image 8', caption: 'LED DISPLAYS', style: { height: '278px' }},
+  {id: 9, category: 'outdoor', src: '/images/work-9.jpg', alt: 'Image 9', caption: 'ADVERTISING FLAGS'},
+  {id: 10, category: 'digital', src: '/images/work-10.png', alt: 'Image 10', caption: 'WEBSITE BANNERS'},
+  {id: 11, category: 'digital', src: '/images/work-11.jpg', alt: 'Image 11', caption: 'PHOTO/VIDEO SHOOTING', style: { height: '202px' }},
+  {id: 12, category: 'digital', src: '/images/work-12.jpg', alt: 'Image 12', caption: 'SEARCH ENGINE OPTIMIZATION (SEO)' , style: { height: '302px' }},
+  {id: 13, category: 'digital', src: '/images/work-13.png', alt: 'Image 13', caption: 'WEBSITE DESIGN DEVELOPMENT'},
+  {id: 14, category: 'outdoor', src: '/images/work-14.jpg', alt: 'Image 14', caption: 'PARKING LOTS'},
+  {id: 15, category: 'digital', src: '/images/work-15.jpg', alt: 'Image 15', caption: 'SOCIAL MEDIA ADVERTISING', style: { height: '202px' }},
+  {id: 16, category: 'digital', src: '/images/work-16.png', alt: 'Image 16', caption: 'WEB ANALYTICS'},
+  {id: 17, category: 'outdoor', src: '/images/work-17.jpg', alt: 'Image 17', caption: 'ROOFTOP DISPLAYS'},
+  {id: 18, category: 'outdoor', src: '/images/work-18.jpg', alt: 'Image 18', caption: 'ROOFTOPS', style: { height: '278px' }},
+  {id: 19, category: 'outdoor', src: '/images/work-19.jpg', alt: 'Image 19', caption: 'LED DISPLAYS', style: { height: '202px' }},
+  {id: 20, category: 'outdoor', src: '/images/work-20.jpg', alt: 'Image 20', caption: 'CYLINDRICAL PILLARS', style: { height: '278px' }},
+  {id: 21, category: 'outdoor', src: '/images/work-21.jpg', alt: 'Image 21', caption: 'STONE PEDESTALS', style: { height: '278px' }},
+  {id: 22, category: 'outdoor', src: '/images/work-22.jpg', alt: 'Image 22', caption: 'BIG BOARDS'},
+  {id: 23, category: 'outdoor', src: '/images/work-23.jpg', alt: 'Image 23', caption: 'CITY INFO', style: { height: '278px' }},
 ];
 
-
 const filteredImages = computed(() => {
-  if (currentCategory.value === 'outdoor') {
-    return images.filter((image) => image.category === 'outdoor');
-  }
-  if (currentCategory.value === 'digital') {
-    return images.filter((image) => image.category === 'digital');
-  }
-  return images;
+  return currentCategory.value === 'all'
+      ? images
+      : images.filter(img => img.category === currentCategory.value);
+});
+
+const imageColumns = computed(() => {
+  const columns = [[], [], [], []];
+  filteredImages.value.forEach((image, index) => {
+    columns[index % 4].push(image);
+  });
+  return columns;
 });
 
 const filterImages = (category) => {
   currentCategory.value = category;
 };
 </script>
+
 <style>
 .group:hover img {
   will-change: transform;

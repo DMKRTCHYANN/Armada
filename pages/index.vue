@@ -113,96 +113,11 @@
         </div>
       </nav>
     </div>
-    <!--    <div-->
-    <!--        :class="[-->
-    <!--      'flex border-t border-[rgba(255,255,255,0.2)] text-sm w-full bg-[#18191b] z-50 px-[15px] transition-all duration-300 fixed left-0',-->
-    <!--      scroll ? 'top-0' : 'top-10'-->
-    <!--    ]"-->
-    <!--    >-->
-    <!--      <nav class="container mx-auto py-[3px]">-->
-    <!--        <div class="flex items-center justify-between">-->
-    <!--          <NuxtLink-->
-    <!--            to="#home"-->
-    <!--          >-->
-    <!--            <img-->
-    <!--                src="/images/armada.png"-->
-    <!--                alt="Armada Logo"-->
-    <!--                class="w-[152px] h-[72px]"-->
-    <!--            />-->
-    <!--          </NuxtLink>-->
-    <!--          <div class="flex space-x-8 text-sm">-->
-    <!--            <div class="flex items-center gap-[10px]">-->
-    <!--              <NuxtLink-->
-    <!--                  to="#home"-->
-    <!--                  :class="{-->
-    <!--                'text-[#169bb2]': route.hash === '#home',-->
-    <!--                'text-gray-300 hover:text-[#169bb2]': route.hash !== '#home',-->
-    <!--              }"-->
-    <!--                  class="transition-colors"-->
-    <!--              >-->
-    <!--                HOME-->
-    <!--              </NuxtLink>-->
-    <!--              <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full"></div>-->
-    <!--            </div>-->
-    <!--            <div class="flex items-center gap-[10px]">-->
-    <!--              <NuxtLink-->
-    <!--                  to="#about-us"-->
-    <!--                  :class="{-->
-    <!--                'text-[#169bb2]': route.hash === '#about-us',-->
-    <!--                'text-gray-300 hover:text-[#169bb2]': route.hash !== '#about-us',-->
-    <!--              }"-->
-    <!--                  class="transition-colors"-->
-    <!--              >-->
-    <!--                ABOUT US-->
-    <!--              </NuxtLink>-->
-    <!--              <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full"></div>-->
-    <!--            </div>-->
-    <!--            <div class="flex items-center gap-[10px]">-->
-    <!--              <NuxtLink-->
-    <!--                  to="#our-services"-->
-    <!--                  :class="{-->
-    <!--                'text-[#169bb2]': route.hash === '#our-services',-->
-    <!--                'text-gray-300 hover:text-[#169bb2]': route.hash !== '#our-services',-->
-    <!--              }"-->
-    <!--                  class="transition-colors"-->
-    <!--              >-->
-    <!--                OUR SERVICES-->
-    <!--              </NuxtLink>-->
-    <!--              <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full"></div>-->
-    <!--            </div>-->
-    <!--            <div class="flex items-center gap-[10px]">-->
-    <!--              <NuxtLink-->
-    <!--                  to="#clients-partners"-->
-    <!--                  :class="{-->
-    <!--                'text-[#169bb2]': route.hash === '#clients-partners',-->
-    <!--                'text-gray-300 hover:text-[#169bb2]': route.hash !== '#clients-partners',-->
-    <!--              }"-->
-    <!--                  class="transition-colors"-->
-    <!--              >-->
-    <!--                Clients & Partners-->
-    <!--              </NuxtLink>-->
-    <!--              <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full"></div>-->
-    <!--            </div>-->
-    <!--            <div class="flex items-center gap-[10px]">-->
-    <!--              <NuxtLink-->
-    <!--                  to="#contact-us"-->
-    <!--                  :class="{-->
-    <!--                'text-[#169bb2]': route.hash === '#contact-us',-->
-    <!--                'text-gray-300 hover:text-[#169bb2]': route.hash !== '#contact-us',-->
-    <!--              }"-->
-    <!--                  class="transition-colors"-->
-    <!--              >-->
-    <!--                CONTACT US-->
-    <!--              </NuxtLink>-->
-    <!--              <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full"></div>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </nav>-->
-    <!--    </div>-->
-    <client-only>
-      <Image-Scroller/>
-    </client-only>
+    <div class="h-[820px]">
+      <client-only>
+        <Image-Scroller/>
+      </client-only>
+    </div>
   </header>
   <div id="about-us" class="pt-[90px] pb-[60px]" data-aos="fade-up">
     <div class="max-w-[1170px] w-full mx-auto px-[15px]">
@@ -299,7 +214,7 @@
   <div class="parallax bg-fixed bg-center bg-no-repeat bg-cover py-[90px] min-h-[500px]">
     <div class="mx-auto max-w-[1140px] w-full">
       <div data-aos="fade-up">
-        <h2 class="text-center text-3xl text-white">Our Vision</h2>
+        <h2 class="text-center text-3xl text-white">Our Process</h2>
         <div class="my-[30px] flex items-center justify-center">
           <div class="w-[400px] h-[1px] bg-gray-400"></div>
           <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full mx-[10px]"></div>
@@ -402,7 +317,7 @@
     </div>
     <div id="facts-section" class="grid grid-cols-4 gap-8 container mx-auto py-[30px]">
       <div v-for="fact in facts" :key="fact.id" class="flex flex-col items-center text-center">
-        <img :src="fact.icon" :alt="fact.title" class="mb-4 w-[71px] h-[60px]"/>
+        <img :src="fact.icon" :alt="fact.title" class="mb-4 w-[60px] h-[60px]"/>
         <div v-if="animatedValues[fact.id]" class="text-5xl font-bold mb-2">{{ animatedValues[fact.id] }}</div>
         <div class="text-[#169bb2] uppercase text-sm tracking-wider">{{ fact.title }}</div>
       </div>
@@ -432,7 +347,6 @@
         </div>
       </div>
       <div class="max-w-[1200px] pt-[30px] w-full mx-auto flex  gap-8">
-
         <div data-aos="fade-right">
           <form class="flex flex-col space-y-5" action="/submit-form" method="POST">
             <input
@@ -607,6 +521,7 @@ const images = [
   {id: 6, category: 'outdoor', src: '/images/work-6.jpg', alt: 'Image 6', caption: 'TRIANGLES'},
   {id: 7, category: 'outdoor', src: '/images/work-7.jpg', alt: 'Image 7', caption: 'CITY PHONES'},
   {id: 8, category: 'outdoor', src: '/images/work-8.jpg', alt: 'Image 8', caption: 'LED DISPLAYS'},
+
 ];
 
 const steps = {

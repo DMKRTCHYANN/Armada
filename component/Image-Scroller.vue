@@ -18,9 +18,9 @@
           </div>
           <nuxt-link
               to="/portfolio"
-
+              class="service-button"
           >
-            <button class="service-button">{{ image.buttonText }}</button>
+            {{ image.buttonText }}
           </nuxt-link>
         </div>
       </div>
@@ -105,7 +105,7 @@ const plugins = [
 .service-button {
   display: block;
   margin-top: 15px;
-  padding: 10px 20px;
+  padding: 10px 30px;
   background-color: #f1f1f1;
   border: none;
   border-radius: 5px;
@@ -119,7 +119,7 @@ const plugins = [
   display: block;
   width: 200px;
   margin-top: 40px;
-  padding: 10px 30px;
+  padding: 10px 50px;
   background-color: transparent;
   border: 3px solid white;
   color: white;
