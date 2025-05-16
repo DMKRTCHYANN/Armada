@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: [
       '~/assets/css/tailwind.css',
+      '~/assets/css/main.css',
     '@fortawesome/fontawesome-free/css/all.min.css'
   ],
   postcss: {
@@ -20,14 +21,12 @@ export default defineNuxtConfig({
     easing: 'ease-in-out',
     once: true,
   },
-  app: {
-    head: {
-      link: [
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap',
-        },
-      ],
-    },
+  nitro: {
+    devProxy: {
+      "/api/": {
+        target: process.env.BACKEND_URL,
+        changeOrigin: true
+      },
+    }
   },
 })
