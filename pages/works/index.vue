@@ -27,12 +27,16 @@
           >
             <i class="fa-solid fa-xmark"></i>
           </button>
-          <div class="flex flex-col items-center space-y-8 mt-[10px] py-8">
+          <div class="flex flex-col items-center space-y-5 mt-[10px] py-3">
             <a href="/#home" class="text-white transition-colors hover:text-[#169bb2]">Home</a>
+            <div class="h-[1px] max-w-[700px] w-full bg-[#333]"></div>
             <a href="/#about-us" class="text-white transition-colors hover:text-[#169bb2]">ABOUT US</a>
+            <div class="h-[1px] max-w-[700px] w-full bg-[#333]"></div>
             <a href="/#our-services" class="text-white transition-colors hover:text-[#169bb2]">OUR SERVICES</a>
+            <div class="h-[1px] max-w-[700px] w-full bg-[#333]"></div>
             <a href="/#clients-partners" class="text-white transition-colors hover:text-[#169bb2]">Clients &
               Partners</a>
+            <div class="h-[1px] max-w-[700px] w-full bg-[#333]"></div>
             <a href="/#contact-us" class="text-white transition-colors hover:text-[#169bb2]">CONTACT US</a>
           </div>
         </div>
@@ -62,65 +66,6 @@
       </div>
     </nav>
   </div>
-  <!--    <div-->
-  <!--        :class="{'bg-black': isNavbarBlack, 'bg-[rgba(24,25,27,0.5)]': !isNavbarBlack} "-->
-  <!--        class="fixed w-full z-50 text-white"-->
-  <!--    >-->
-  <!--      <nav class="max-w-[1200px] w-full px-[20px] mx-auto py-[3px] ">-->
-  <!--        <div class="flex items-center justify-between">-->
-  <!--          <NuxtLink to="/#home">-->
-  <!--            <img src="/images/armada.png" alt="Armada Logo" class="w-[152px] h-[72px]"/>-->
-  <!--          </NuxtLink>-->
-  <!--          <div class="flex space-x-8 text-sm">-->
-  <!--            <div class="flex items-center gap-[10px]">-->
-  <!--              <a-->
-  <!--                  href="/#home"-->
-  <!--                  class="text-white transition-colors hover:text-[#169bb2]"-->
-  <!--              >-->
-  <!--                Home-->
-  <!--              </a>-->
-  <!--              <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full"></div>-->
-  <!--            </div>-->
-  <!--            <div class="flex items-center gap-[10px]">-->
-  <!--              <a-->
-  <!--                  href="/#about-us"-->
-  <!--                  class="text-white transition-colors hover:text-[#169bb2]"-->
-  <!--              >-->
-  <!--                ABOUT US-->
-  <!--              </a>-->
-  <!--              <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full"></div>-->
-  <!--            </div>-->
-  <!--            <div class="flex items-center gap-[10px]">-->
-  <!--              <a-->
-  <!--                  href="/#our-services"-->
-  <!--                  class="text-white transition-colors hover:text-[#169bb2]"-->
-  <!--              >-->
-  <!--                OUR SERVICES-->
-  <!--              </a>-->
-  <!--              <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full"></div>-->
-  <!--            </div>-->
-  <!--            <div class="flex items-center gap-[10px]">-->
-  <!--              <a-->
-  <!--                  href="/#clients-partners"-->
-  <!--                  class="text-white transition-colors hover:text-[#169bb2]"-->
-  <!--              >-->
-  <!--                Clients & Partners-->
-  <!--              </a>-->
-  <!--              <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full"></div>-->
-  <!--            </div>-->
-  <!--            <div class="flex items-center gap-[10px]">-->
-  <!--              <a-->
-  <!--                  href="/#contact-us"-->
-  <!--                  class="text-white transition-colors hover:text-[#169bb2]"-->
-  <!--              >-->
-  <!--                CONTACT US-->
-  <!--              </a>-->
-  <!--              <div class="w-[6px] h-[6px] bg-[#169bb2] rounded-full"></div>-->
-  <!--            </div>-->
-  <!--          </div>-->
-  <!--        </div>-->
-  <!--      </nav>-->
-  <!--    </div>-->
   <div class="parallax-2 bg-fixed bg-center bg-no-repeat bg-cover">
     <div class="max-w-[1140px] py-[80px] h-[300px] items-center w-full mx-auto flex justify-between">
       <h1 class="text-white text-4xl">SERVICES</h1>
@@ -362,21 +307,3 @@ onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
 });
 </script>
-
-<style>
-/* Fade-in/out animation for images */
-.image-fade-enter-active, .image-fade-leave-active {
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.image-fade-enter-from, .image-fade-leave-to {
-  opacity: 0;
-  transform: scale(0.95);
-}
-
-.image-fade-enter-to, .image-fade-leave-from {
-  opacity: 1;
-  transform: scale(1);
-}
-
-</style>

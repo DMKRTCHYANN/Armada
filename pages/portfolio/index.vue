@@ -23,11 +23,16 @@
           >
             <i class="fa-solid fa-xmark"></i>
           </button>
-          <div class="flex flex-col items-center space-y-8 mt-[10px] py-8">
+          <div class="flex flex-col items-center space-y-5 mt-[10px] py-3">
             <a href="/#home" class="text-white transition-colors hover:text-[#169bb2]">Home</a>
+            <div class="h-[1px] max-w-[700px] w-full bg-[#333]"></div>
             <a href="/#about-us" class="text-white transition-colors hover:text-[#169bb2]">ABOUT US</a>
+            <div class="h-[1px] max-w-[700px] w-full bg-[#333]"></div>
             <a href="/#our-services" class="text-white transition-colors hover:text-[#169bb2]">OUR SERVICES</a>
-            <a href="/#clients-partners" class="text-white transition-colors hover:text-[#169bb2]">Clients & Partners</a>
+            <div class="h-[1px] max-w-[700px] w-full bg-[#333]"></div>
+            <a href="/#clients-partners" class="text-white transition-colors hover:text-[#169bb2]">Clients &
+              Partners</a>
+            <div class="h-[1px] max-w-[700px] w-full bg-[#333]"></div>
             <a href="/#contact-us" class="text-white transition-colors hover:text-[#169bb2]">CONTACT US</a>
           </div>
         </div>
@@ -274,10 +279,8 @@ const filterImages = (category) => {
   currentCategory.value = category;
 };
 </script>
-
 <style>
 .group:hover img {
   will-change: transform;
 }
-
 </style>

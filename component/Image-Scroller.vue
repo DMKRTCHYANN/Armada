@@ -6,7 +6,7 @@
         v-for="(image, index) in images"
         :key="index"
     >
-      <div class="content w-full max-w-[90%] lg:max-w-[1300px]">
+      <div class="content w-full max-w-[90%]  lg:max-w-[1300px]">
         <div>
           <div
               class="text-white text-2xl lg:text-[50px] lg:mb-10"
@@ -76,7 +76,6 @@ const plugins = [
   height: 900px;
 }
 
-
 .content {
   max-width: 1300px;
   margin: auto;
@@ -116,7 +115,8 @@ const plugins = [
 
 .service-button {
   display: block;
-  width: 200px;
+  max-width: 200px;
+  width: 100%;
   margin-top: 40px;
   background-color: transparent;
   border: 1px solid white;

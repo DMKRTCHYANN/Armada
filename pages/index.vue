@@ -42,7 +42,7 @@
                 <img src="/images/armada.png" alt="Armada Logo" class="w-[152px] h-[72px]"/>
               </NuxtLink>
               <button
-                  class="block lg:hidden text-white text-2xl focus:outline-none"
+                  class="block lg:hidden text-white hover:text-[#169bb2] text-2xl focus:outline-none"
                   @click="toggleMenu"
               >
                 <i class="fa-solid fa-bars"></i>
@@ -54,17 +54,21 @@
       ]"
               >
                 <button
-                    class="absolute top-4 right-4 text-2xl focus:outline-none"
+                    class="absolute top-4 right-4 text-2xl  focus:outline-none"
                     @click="toggleMenu"
                 >
                   <i class="fa-solid fa-xmark"></i>
                 </button>
-                <div class="flex flex-col items-center space-y-8 mt-[10px] py-8">
+                <div class="flex flex-col items-center space-y-5 mt-[10px] py-3">
                   <a href="/#home" class="text-white transition-colors hover:text-[#169bb2]">Home</a>
+                  <div class="h-[1px] max-w-[700px] w-full bg-[#333]"></div>
                   <a href="/#about-us" class="text-white transition-colors hover:text-[#169bb2]">ABOUT US</a>
+                  <div class="h-[1px] max-w-[700px] w-full bg-[#333]"></div>
                   <a href="/#our-services" class="text-white transition-colors hover:text-[#169bb2]">OUR SERVICES</a>
+                  <div class="h-[1px] max-w-[700px] w-full bg-[#333]"></div>
                   <a href="/#clients-partners" class="text-white transition-colors hover:text-[#169bb2]">Clients &
                     Partners</a>
+                  <div class="h-[1px] max-w-[700px] w-full bg-[#333]"></div>
                   <a href="/#contact-us" class="text-white transition-colors hover:text-[#169bb2]">CONTACT US</a>
                 </div>
               </div>
@@ -375,7 +379,7 @@
                   type="text"
                   name="name"
                   placeholder="Your Name"
-                  class="w-full border border-gray-300 p-3 focus:outline-none bg-gray-100 focus:ring-2 focus:ring-[#169bb2] text-sm md:text-base md:max-w-[200px] max-w-full"
+                  class="w-full border border-gray-300 p-3 focus:outline-none bg-gray-100 focus:ring-2 focus:ring-[#169bb2] text-sm md:text-base md:max-w-[7 00px] max-w-full"
                   required
               />
               <input
@@ -383,7 +387,7 @@
                   type="email"
                   name="email"
                   placeholder="Your Email"
-                  class="w-full border border-gray-300 p-3 focus:outline-none bg-gray-100 focus:ring-2 focus:ring-[#169bb2] text-sm md:text-base md:max-w-[200px] max-w-full"
+                  class="w-full border border-gray-300 p-3 focus:outline-none bg-gray-100 focus:ring-2 focus:ring-[#169bb2] text-sm md:text-base md:max-w-[700px] max-w-full"
                   required
               />
               <input
@@ -391,25 +395,16 @@
                   type="text"
                   name="phone"
                   placeholder="Your Phone"
-                  class="w-full border border-gray-300 p-3 focus:outline-none bg-gray-100 focus:ring-2 focus:ring-[#169bb2] text-sm md:text-base md:max-w-[200px] max-w-full"
+                  class="w-full border border-gray-300 p-3 focus:outline-none bg-gray-100 focus:ring-2 focus:ring-[#169bb2] text-sm md:text-base md:max-w-[700px] max-w-full"
               />
               <textarea
                   v-model="message"
                   name="message"
                   placeholder="Your Message"
                   rows="4"
-                  class="w-full border border-gray-300 p-3 focus:outline-none bg-gray-100  focus:ring-2 focus:ring-[#169bb2] text-sm  md:text-base lg:hidden flex md:max-w-[200px] max-w-full"
+                  class="w-full border border-gray-300 p-3 focus:outline-none bg-gray-100  focus:ring-2 focus:ring-[#169bb2] text-sm  md:text-base lg:hidden flex md:max-w-[700px] max-w-full"
                   required
               ></textarea>
-              <!--              <textarea-->
-              <!--                  v-model="message"-->
-              <!--                  name="message"-->
-              <!--                  placeholder="Your Message"-->
-              <!--                  rows="4"-->
-              <!--                  class="w-full border border-gray-300 p-3 focus:outline-none bg-gray-100 focus:ring-2 focus:ring-[#169bb2] text-sm lg:hidden md:text-base"-->
-              <!--                  required-->
-              <!--              ></textarea>-->
-
               <button
                   type="submit"
                   class="max-w-[170px] w-full bg-white text-black text-sm py-2 px-4 border border-black hover:bg-black hover:text-white transition-all duration-300  md:w-auto"
@@ -423,7 +418,7 @@
               <p v-if="errorMessage" class="mt-2 text-red-600 font-semibold text-sm md:text-base">{{ errorMessage }}</p>
             </form>
           </div>
-          <div class="max-w-[390px] w-full">
+          <div class="max-w-[390px] w-full lg:flex hidden">
             <textarea
                 v-model="message"
                 name="message"
